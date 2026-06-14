@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -33,5 +34,25 @@ class DashboardController extends Controller
         };
 
         return redirect()->route('admin.dashboard')->with('success', "Status booking berhasil {$statusText}.");
+    }
+
+    public function verifyPayment(Request $request, Payment $payment)
+    {
+        $validated = $request->validate([
+            'status' => 'required|in:verified,rejected',
+        ]);
+
+        $payment->update(['status' => $validated['status']]);
+
+        $statusText = $validated['status'] === 'verified' ? 'dikonfirmasi' : 'ditolak';
+
+        return redirect()->route('admin.dashboard')->with('success', "Pembayaran berhasil {$statusText}.");
+    }
+
+    public function destroy(Booking $booking)
+    {
+        $booking->delete();
+
+        return redirect()->route('admin.dashboard')->with('success', 'Pesanan berhasil dihapus.');
     }
 }

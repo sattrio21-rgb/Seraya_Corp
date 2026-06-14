@@ -26,7 +26,7 @@
 <body class="bg-gray-100 min-h-screen">
     <div class="flex min-h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-primary text-white flex-shrink-0">
+        <aside class="w-64 bg-primary text-white flex-shrink-0 relative flex flex-col">
             <div class="p-6">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
                     <div class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center">
@@ -62,7 +62,7 @@
                 </a>
             </nav>
 
-            <div class="absolute bottom-0 w-64 p-4">
+            <div class="mt-auto p-4">
                 <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf
                     <button type="submit" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition w-full text-left">

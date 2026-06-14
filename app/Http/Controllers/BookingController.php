@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
+    public function myOrders()
+    {
+        $bookings = auth()->user()->bookings()
+            ->with(['package', 'payment'])
+            ->latest()
+            ->get();
+
+        return view('booking.my-orders', compact('bookings'));
+    }
+
     public function create(Package $package)
     {
         return view('booking.create', compact('package'));
@@ -18,12 +28,12 @@ class BookingController extends Controller
             'booking_date' => 'required|date|after_or_equal:today',
         ]);
 
-        $request->user()->bookings()->create([
+        $booking = $request->user()->bookings()->create([
             'package_id' => $package->id,
             'booking_date' => $validated['booking_date'],
             'status' => 'pending',
         ]);
 
-        return redirect()->route('home')->with('success', 'Booking berhasil! Menunggu konfirmasi.');
+        return redirect()->route('payment.show', $booking)->with('success', 'Booking berhasil! Silakan lakukan pembayaran.');
     }
 }

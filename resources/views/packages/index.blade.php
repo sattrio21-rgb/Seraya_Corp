@@ -39,8 +39,6 @@
         <div class="hidden md:flex gap-8 text-sm tracking-wide font-light">
             <a href="{{ route('home') }}" class="hover:text-gray-300 transition">BERANDA</a>
             <a href="{{ route('visitor.packages') }}" class="text-white font-medium border-b-2 border-white pb-0.5">PAKET WISATA</a>
-            <a href="{{ route('home') }}#galeri" class="hover:text-gray-300 transition">GALERI</a>
-            <a href="{{ route('home') }}#hubungi" class="hover:text-gray-300 transition">HUBUNGI KAMI</a>
         </div>
 
         <div class="flex items-center gap-4 text-sm">
