@@ -25,10 +25,14 @@ class BookingController extends Controller
     public function store(Request $request, Package $package)
     {
         $validated = $request->validate([
+            'full_name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
             'booking_date' => 'required|date|after_or_equal:today',
         ]);
 
         $booking = $request->user()->bookings()->create([
+            'full_name' => $validated['full_name'],
+            'phone' => $validated['phone'],
             'package_id' => $package->id,
             'booking_date' => $validated['booking_date'],
             'status' => 'pending',

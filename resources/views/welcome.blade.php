@@ -65,7 +65,11 @@
                 <div class="bg-white text-gray-800 p-8 rounded-2xl shadow-2xl max-w-md relative mt-8 md:mt-0">
                     <div class="absolute -top-10 left-1/2 transform -translate-x-1/2">
                         <div class="w-20 h-20 rounded-full border-4 border-white overflow-hidden shadow-md">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" alt="Founder" class="w-full h-full object-cover">
+                            @if($pages->get('founder_photo') && $pages->get('founder_photo')->image)
+                                <img src="{{ Storage::url($pages->get('founder_photo')->image) }}" alt="Founder" class="w-full h-full object-cover">
+                            @else
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" alt="Founder" class="w-full h-full object-cover">
+                            @endif
                         </div>
                     </div>
                     <div class="text-center mt-8">
@@ -121,7 +125,15 @@
         @else
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @foreach($packages as $package)
-                    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
+                    @auth('web')
+                        @if(auth()->user()->role !== 'admin')
+                            <a href="{{ route('booking.create', $package) }}" class="block border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition duration-300 cursor-pointer">
+                        @else
+                            <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
+                        @endif
+                    @else
+                        <a href="{{ route('login') }}" class="block border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition duration-300 cursor-pointer">
+                    @endauth
                         <div class="h-48 overflow-hidden">
                             @if($package->image)
                                 <img src="{{ Storage::url($package->image) }}" alt="{{ $package->name }}" class="w-full h-full object-cover">
@@ -134,28 +146,21 @@
                             @endif
                         </div>
                         <div class="p-4">
-                            <h4 class="font-medium text-sm mb-4">{{ $package->name }}</h4>
+                            <h4 class="font-medium text-sm mb-2">{{ $package->name }}</h4>
                             <p class="text-xs text-gray-500 mb-4 line-clamp-2">{{ $package->description }}</p>
-                            <div class="border-t border-gray-100 pt-3 flex justify-between items-center">
+                            <div class="border-t border-gray-100 pt-3">
                                 <span class="text-xs font-bold text-gray-800">Rp. {{ number_format($package->price, 0, ',', '.') }}</span>
-                                @auth('web')
-                                    @if(auth()->user()->role !== 'admin')
-                                        <a href="{{ route('booking.create', $package) }}" class="text-xs bg-primary text-white px-3 py-1.5 rounded-full hover:bg-opacity-90 transition">
-                                            Booking
-                                        </a>
-                                    @else
-                                        <a href="{{ route('login') }}" class="text-xs bg-primary text-white px-3 py-1.5 rounded-full hover:bg-opacity-90 transition">
-                                            Login untuk Booking
-                                        </a>
-                                    @endif
-                                @else
-                                    <a href="{{ route('login') }}" class="text-xs bg-primary text-white px-3 py-1.5 rounded-full hover:bg-opacity-90 transition">
-                                        Login untuk Booking
-                                    </a>
-                                @endauth
                             </div>
                         </div>
-                    </div>
+                    @auth('web')
+                        @if(auth()->user()->role !== 'admin')
+                            </a>
+                        @else
+                            </div>
+                        @endif
+                    @else
+                        </a>
+                    @endauth
                 @endforeach
             </div>
         @endif

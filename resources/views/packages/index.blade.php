@@ -39,6 +39,13 @@
         <div class="hidden md:flex gap-8 text-sm tracking-wide font-light">
             <a href="{{ route('home') }}" class="hover:text-gray-300 transition">BERANDA</a>
             <a href="{{ route('visitor.packages') }}" class="text-white font-medium border-b-2 border-white pb-0.5">PAKET WISATA</a>
+            @auth('web')
+                @if(auth()->user()->role !== 'admin')
+                    <a href="{{ route('my-orders') }}" class="hover:text-gray-300 transition">PESANAN SAYA</a>
+                @endif
+            @else
+                <a href="{{ route('login') }}" class="hover:text-gray-300 transition">PESANAN SAYA</a>
+            @endauth
         </div>
 
         <div class="flex items-center gap-4 text-sm">
@@ -74,7 +81,15 @@
         @else
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @foreach($packages as $package)
-                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
+                    @auth('web')
+                        @if(auth()->user()->role !== 'admin')
+                            <a href="{{ route('booking.create', $package) }}" class="block bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition duration-300 cursor-pointer">
+                        @else
+                            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
+                        @endif
+                    @else
+                        <a href="{{ route('login') }}" class="block bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition duration-300 cursor-pointer">
+                    @endauth
                         <div class="h-56 overflow-hidden">
                             @if($package->image)
                                 <img src="{{ Storage::url($package->image) }}" alt="{{ $package->name }}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
@@ -89,26 +104,19 @@
                         <div class="p-5">
                             <h3 class="font-bold text-lg text-gray-800 mb-2">{{ $package->name }}</h3>
                             <p class="text-sm text-gray-500 mb-4 line-clamp-3">{{ $package->description }}</p>
-                            <div class="border-t pt-4 flex justify-between items-center">
+                            <div class="border-t pt-4">
                                 <span class="text-xl font-bold text-primary">Rp. {{ number_format($package->price, 0, ',', '.') }}</span>
-                                @auth('web')
-                                    @if(auth()->user()->role !== 'admin')
-                                        <a href="{{ route('booking.create', $package) }}" class="bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-opacity-90 transition">
-                                            Booking
-                                        </a>
-                                    @else
-                                        <a href="{{ route('login') }}" class="bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-opacity-90 transition">
-                                            Login untuk Booking
-                                        </a>
-                                    @endif
-                                @else
-                                    <a href="{{ route('login') }}" class="bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-opacity-90 transition">
-                                        Login untuk Booking
-                                    </a>
-                                @endauth
                             </div>
                         </div>
-                    </div>
+                    @auth('web')
+                        @if(auth()->user()->role !== 'admin')
+                            </a>
+                        @else
+                            </div>
+                        @endif
+                    @else
+                        </a>
+                    @endauth
                 @endforeach
             </div>
         @endif

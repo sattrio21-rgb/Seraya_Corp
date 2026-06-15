@@ -28,7 +28,7 @@
     @csrf
     @method('PUT')
 
-    <!-- Tentang Kami -->
+    {{-- Tentang Kami --}}
     <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
         <h2 class="text-lg font-bold text-gray-800 mb-4">Tentang Kami</h2>
 
@@ -41,11 +41,11 @@
         <div class="mb-4">
             <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
             <textarea name="about_content" rows="4"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition">{{ $pages->get('about_content')->content ?? 'Semua Travel adalah penyedia layanan perjalanan yang berkomitmen memberikan pengalaman liburan yang aman, nyaman, dan berkesan.' }}</textarea>
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition">{{ $pages->get('about_content')->content ?? '' }}</textarea>
         </div>
     </div>
 
-    <!-- Pendiri -->
+    {{-- Pendiri --}}
     <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
         <h2 class="text-lg font-bold text-gray-800 mb-4">Pendiri</h2>
 
@@ -58,11 +58,11 @@
         <div class="mb-4">
             <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
             <textarea name="founder_description" rows="3"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition">{{ $pages->get('founder_description')->content ?? 'Pendiri kami percaya bahwa setiap perjalanan adalah cerita berharga.' }}</textarea>
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition">{{ $pages->get('founder_description')->content ?? '' }}</textarea>
         </div>
     </div>
 
-    <!-- Alasan Memilih Kami -->
+    {{-- Alasan Memilih Kami --}}
     <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
         <h2 class="text-lg font-bold text-gray-800 mb-4">Alasan Memilih Kami</h2>
 

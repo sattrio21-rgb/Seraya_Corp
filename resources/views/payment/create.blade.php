@@ -9,14 +9,10 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- QRIS Section -->
-        <div class="bg-white rounded-2xl shadow-lg p-6">
+        <div class="bg-white rounded-2xl shadow-lg p-4">
             <h2 class="text-lg font-bold text-gray-800 mb-4 text-center">Scan QRIS</h2>
-            <div class="flex justify-center mb-4">
-                <img src="{{ asset('images/qris.png') }}" alt="QRIS Code" class="w-64 h-auto rounded-lg border">
-            </div>
-            <div class="text-center text-sm text-gray-500">
-                <p class="font-medium text-gray-700">WIRATAMA SATIO HERLAMBANG, EDUKASI</p>
-                <p class="text-xs">NMID: ID1025447146883</p>
+            <div class="flex justify-center">
+                <img src="{{ asset('images/qris.png') }}" alt="QRIS Code" class="w-full h-auto rounded-lg">
             </div>
         </div>
 
