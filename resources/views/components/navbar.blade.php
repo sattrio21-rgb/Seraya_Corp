@@ -18,6 +18,8 @@
             @if(auth()->user()->role !== 'admin')
                 <a href="{{ route('my-orders') }}" class="hover:text-gray-300 transition">PESANAN SAYA</a>
             @endif
+        @else
+            <a href="{{ route('login') }}" class="hover:text-gray-300 transition">PESANAN SAYA</a>
         @endauth
     </div>
 
