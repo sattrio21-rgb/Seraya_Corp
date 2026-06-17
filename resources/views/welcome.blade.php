@@ -50,7 +50,7 @@
     </section>
 
     {{-- TENTANG KAMI --}}
-    <section class="max-w-7xl mx-auto mt-12 px-4 md:px-0">
+    <section class="max-w-7xl mx-auto mt-12 px-4 md:px-8">
         <div class="bg-primary rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
 
@@ -93,7 +93,7 @@
         ];
     @endphp
 
-    <section class="max-w-7xl mx-auto mt-20 px-4 md:px-0 mb-20">
+    <section class="max-w-7xl mx-auto mt-20 px-4 md:px-8 mb-20">
         <h2 class="font-serif text-3xl text-primary mb-10 font-bold">{{ $pages->get('values_title')->content ?? 'Alasan Memilih Kami' }}</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -115,7 +115,7 @@
     </section>
 
     {{-- PILIHAN PAKET --}}
-    <section id="paket-section" class="max-w-7xl mx-auto px-4 md:px-0 mb-24">
+    <section id="paket-section" class="max-w-7xl mx-auto px-4 md:px-8 mb-24">
         <h2 class="font-serif text-2xl font-bold text-primary mb-8">Pilihan Paket</h2>
 
         @if($packages->isEmpty())
