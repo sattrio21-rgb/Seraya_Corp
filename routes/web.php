@@ -26,16 +26,14 @@ Route::middleware('guest')->group(function () {
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 // Booking Routes (Auth Required)
-Route::middleware('auth.user')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/booking/{package}', [BookingController::class, 'create'])->name('booking.create');
     Route::post('/booking/{package}', [BookingController::class, 'store'])->name('booking.store');
 
-// Payment Routes (Auth Required)
-Route::middleware('auth')->group(function () {
+    // Payment Routes
     Route::get('/payment/{booking}', [PaymentController::class, 'show'])->name('payment.show');
     Route::post('/payment/{booking}', [PaymentController::class, 'store'])->name('payment.store');
     Route::get('/pesanan-saya', [\App\Http\Controllers\BookingController::class, 'myOrders'])->name('my-orders');
-});
 });
 
 // Admin Routes

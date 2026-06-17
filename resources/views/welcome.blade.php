@@ -13,11 +13,11 @@
 
     {{-- HERO SECTION --}}
     <section class="max-w-7xl mx-auto mt-6 px-4 md:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 h-auto md:h-[550px]">
+        <div class="flex flex-col md:flex-row gap-4" style="height: 550px;">
 
             {{-- Left Large Image --}}
-            <div class="md:col-span-7 relative rounded-xl overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=2071&auto=format&fit=crop" alt="Bromo" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+            <div class="md:w-7/12 relative rounded-xl overflow-hidden group">
+                <img src="{{ asset('images/hero-main.png') }}" alt="Hero Main" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div class="absolute bottom-10 left-8 right-8 text-white">
                     <h2 class="font-serif text-3xl mb-3">Travel</h2>
@@ -28,9 +28,9 @@
             </div>
 
             {{-- Right Side Columns --}}
-            <div class="md:col-span-5 flex flex-col gap-4">
+            <div class="md:w-5/12 flex flex-col gap-4">
                 <div class="flex-1 relative rounded-xl overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1534234828563-0252172f426e?q=80&w=1974&auto=format&fit=crop" alt="Jeep" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <img src="{{ asset('images/hero-top.png') }}" alt="Hero Top" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
                     <div class="absolute bottom-8 left-6 text-white max-w-xs">
                         <h3 class="font-serif text-xl mb-2 text-orange-300">Inspirasi Perjalanan</h3>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="flex-1 relative rounded-xl overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1605649482396-2d0c127e744d?q=80&w=2070&auto=format&fit=crop" alt="Jeeps" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <img src="{{ asset('images/hero-bottom.png') }}" alt="Hero Bottom" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
                     <div class="absolute bottom-8 left-6 text-white max-w-xs">
                         <h3 class="font-serif text-xl mb-2 text-blue-300">Nilai Kami</h3>
@@ -65,11 +65,7 @@
                 <div class="bg-white text-gray-800 p-8 rounded-2xl shadow-2xl max-w-md relative mt-8 md:mt-0">
                     <div class="absolute -top-10 left-1/2 transform -translate-x-1/2">
                         <div class="w-20 h-20 rounded-full border-4 border-white overflow-hidden shadow-md">
-                            @if($pages->get('founder_photo') && $pages->get('founder_photo')->image)
-                                <img src="{{ Storage::url($pages->get('founder_photo')->image) }}" alt="Founder" class="w-full h-full object-cover">
-                            @else
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" alt="Founder" class="w-full h-full object-cover">
-                            @endif
+                            <img src="{{ asset('images/Founder.png') }}" alt="Founder" class="w-full h-full object-cover">
                         </div>
                     </div>
                     <div class="text-center mt-8">
