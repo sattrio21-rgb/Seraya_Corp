@@ -12,7 +12,7 @@
 @section('content')
 
     {{-- HERO SECTION --}}
-    <section class="max-w-7xl mx-auto mt-6 px-4 md:px-0">
+    <section class="max-w-7xl mx-auto mt-6 px-4 md:px-8">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 h-auto md:h-[550px]">
 
             {{-- Left Large Image --}}
