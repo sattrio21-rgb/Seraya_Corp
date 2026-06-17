@@ -26,14 +26,9 @@
 <body class="bg-gray-50 min-h-screen">
 
     <!-- NAVBAR -->
-    <nav class="bg-primary text-white py-4 px-6 md:px-16 flex justify-between items-center sticky top-0 z-50 shadow-md">
-        <a href="{{ route('home') }}" class="flex items-center gap-3">
-            <div class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-                </svg>
-            </div>
-            <span class="font-serif text-2xl tracking-widest font-bold uppercase">Seraya</span>
+    <nav class="bg-primary text-white h-16 px-6 md:px-16 flex justify-between items-center sticky top-0 z-50 shadow-md">
+        <a href="{{ route('home') }}" class="flex items-center">
+            <img src="{{ asset('images/logo.png') }}" alt="Seraya Logo" class="h-14 w-auto -my-2">
         </a>
 
         <div class="hidden md:flex gap-8 text-sm tracking-wide font-light">

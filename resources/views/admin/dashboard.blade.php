@@ -47,11 +47,7 @@
                                     @csrf
                                     @method('PATCH')
                                     <select name="status" onchange="this.form.submit()"
-                                        class="text-xs font-semibold rounded-full px-3 py-1.5 border-0 focus:ring-2 focus:ring-primary cursor-pointer
-                                        @if($booking->status === 'pending') bg-yellow-100 text-yellow-800
-                                        @elseif($booking->status === 'process') bg-blue-100 text-blue-800
-                                        @elseif($booking->status === 'accepted') bg-green-100 text-green-800
-                                        @else bg-red-100 text-red-800 @endif">
+                                        class="text-xs font-semibold rounded-full px-3 py-1.5 border border-gray-300 bg-white text-gray-700 focus:ring-2 focus:ring-primary cursor-pointer">
                                         <option value="pending" {{ $booking->status === 'pending' ? 'selected' : '' }}>Pending</option>
                                         <option value="process" {{ $booking->status === 'process' ? 'selected' : '' }}>Process</option>
                                         <option value="accepted" {{ $booking->status === 'accepted' ? 'selected' : '' }}>Accept</option>

@@ -10,10 +10,10 @@
     </div>
 
     <footer class="bg-secondary pt-10 pb-6">
-        <div class="max-w-7xl mx-auto px-4 md:px-0">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16 text-sm text-center md:text-left">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12 mb-16 text-sm text-center md:text-left">
                 {{-- Col 1: Hubungi Kami --}}
-                <div>
+                <div class="px-2">
                     <h5 class="font-serif font-bold text-primary mb-4">Hubungi Kami</h5>
                     <ul class="space-y-3 text-gray-600 text-xs">
                         <li class="flex items-start justify-center md:justify-start gap-2">
@@ -32,9 +32,9 @@
                 </div>
 
                 {{-- Col 2: Layanan Kami --}}
-                <div>
+                <div class="px-2">
                     <h5 class="font-serif font-bold text-primary mb-4">Layanan Kami</h5>
-                    <ul class="space-y-2 text-gray-600 text-xs">
+                    <ul class="space-y-3 text-gray-600 text-xs">
                         <li><a href="{{ route('visitor.packages') }}" class="hover:text-primary">Event & Gathering Perusahaan</a></li>
                         <li><a href="{{ route('visitor.packages') }}" class="hover:text-primary">Private Trip</a></li>
                         <li><a href="{{ route('visitor.packages') }}" class="hover:text-primary">Open Trip</a></li>
@@ -43,9 +43,9 @@
                 </div>
 
                 {{-- Col 3: Support --}}
-                <div>
+                <div class="px-2">
                     <h5 class="font-serif font-bold text-primary mb-4">Support</h5>
-                    <ul class="space-y-2 text-gray-600 text-xs">
+                    <ul class="space-y-3 text-gray-600 text-xs">
                         <li><a href="#" class="hover:text-primary">Tentang Kami</a></li>
                         <li><a href="#" class="hover:text-primary">Syarat & Ketentuan</a></li>
                         <li><a href="#" class="hover:text-primary">Kebijakan Privasi</a></li>
@@ -53,9 +53,9 @@
                 </div>
 
                 {{-- Col 4: Ikuti Kami --}}
-                <div>
+                <div class="px-2">
                     <h5 class="font-serif font-bold text-primary mb-4">Ikuti Kami</h5>
-                    <ul class="space-y-2 text-gray-600 text-xs">
+                    <ul class="space-y-3 text-gray-600 text-xs">
                         <li><a href="#" class="hover:text-primary">Facebook</a></li>
                         <li><a href="#" class="hover:text-primary">Instagram</a></li>
                         <li><a href="#" class="hover:text-primary">TikTok</a></li>
